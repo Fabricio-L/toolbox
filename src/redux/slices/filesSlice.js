@@ -28,7 +28,7 @@ const filesSlice = createSlice({
       state.message = 'Getting data...'
     },
     [getFilesDetails.fulfilled]: (state, action) => {
-      state.data.push(...action.payload.data)
+      action.payload.data && state.data.push(...action.payload.data)
       state.loading = false
       state.isSuccess = true
       state.message = 'Getting data successfully!'
